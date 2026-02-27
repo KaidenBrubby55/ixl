@@ -62,19 +62,31 @@
         border: none;
     }
 
-    .close-btn {
+    /* container for close/refresh buttons at top-right */
+    .iframe-controls {
         position: absolute;
-        top: 0.625rem;    
+        top: 0.625rem;
         right: 0.625rem;
-        background-color: #333;
-        padding: 0.625rem 1.25rem; 
+        display: flex;
+        gap: 0.5rem;
         z-index: 1001;
     }
 
-    .close-btn:hover {
-        background-color: #555;
+    .close-btn,
+    .refresh-btn {
+        background-color: #333;
+        padding: 0.625rem 1.25rem;
+        cursor: pointer;
+        border: none;
+        border-radius: 0.25rem;
+        color: #fff;
+        font-size: 0.9rem;
     }
 
+    .close-btn:hover,
+    .refresh-btn:hover {
+        background-color: #555;
+    }
    
     #video-btn {
         position: fixed;
@@ -152,51 +164,87 @@
 
 <div id="iframe-container-1" class="iframe-container">
     <iframe id="game-iframe-1" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(1)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(1)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(1)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-2" class="iframe-container">
     <iframe id="game-iframe-2" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(2)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(2)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(2)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-3" class="iframe-container">
     <iframe id="game-iframe-3" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(3)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(3)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(3)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-4" class="iframe-container">
     <iframe id="game-iframe-4" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(4)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(4)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(4)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-5" class="iframe-container">
     <iframe id="game-iframe-5" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(5)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(5)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(5)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-6" class="iframe-container">
     <iframe id="game-iframe-6" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(6)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(6)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(6)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-7" class="iframe-container">
     <iframe id="game-iframe-7" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(7)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(7)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(7)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-8" class="iframe-container">
     <iframe id="game-iframe-8" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(8)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(8)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(8)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-9" class="iframe-container">
     <iframe id="game-iframe-9" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(9)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(9)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(9)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-10" class="iframe-container">
     <iframe id="game-iframe-10" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(10)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(10)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(10)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-11" class="iframe-container">
     <iframe id="game-iframe-11" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(11)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(11)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(11)">Close Game</button>
+    </div>
 </div>
 <div id="iframe-container-12" class="iframe-container">
     <iframe id="game-iframe-12" class="game-iframe" src=""></iframe>
-    <button class="close-btn" onclick="closeGame(12)">Close Game</button>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(12)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(12)">Close Game</button>
+    </div>
 </div>
 
 
@@ -242,6 +290,14 @@ function closeGame(gameNum) {
     if (iframe) iframe.src = '';
     if (container) container.style.display = 'none';
     document.body.style.overflow = 'auto';
+}
+
+function refreshGame(gameNum) {
+    const iframe = document.getElementById('game-iframe-' + gameNum);
+    if (iframe) {
+        // reload using stored URL to avoid caching issues
+        iframe.src = gameUrls[gameNum] || '';
+    }
 }
 
 function openVideo() {
