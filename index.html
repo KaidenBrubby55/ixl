@@ -1,13 +1,150 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Games</title>
+<style>
+    /* no custom root font‑size – browser default (16px) */
+    body {
+        background-color: #333333;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+
+    h1 {
+        color: #ffffff;
+        font-size: 2rem;         /* 32px */
+        margin-bottom: 1.875rem; /* 30px */
+    }
+
+    .button-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+        gap: 0.9375rem;          /* 15px */
+        max-width: 37.5rem;      /* 600px */
+    }
+
+    button {
+        padding: 1rem;           /* 16px */
+        font-size: 1rem;         /* 16px */
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 0.5rem;   /* 8px */
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .iframe-container {
+        display: none;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        flex-direction: column;
+    }
+
+    .game-iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 0.625rem;    /* 10px */
+        right: 0.625rem;
+        background-color: #333;
+        padding: 0.625rem 1.25rem; /* 10×20px */
+        z-index: 1001;
+    }
+
+    .close-btn:hover {
+        background-color: #555;
+    }
+</style>
 </head>
 <body>
-    <h1>Games</h1>
-    <p>penis</p>
-    <p>penis</p>
-    <p>penis</p>
+<h1>Games</h1>
+<div class="button-container">
+    <button onclick="openGame(1)">Baldi Plus</button>
+    <button onclick="openGame(2)">Epstein</button>
+    <button onclick="openGame(3)">Baldi</button>
+    <button onclick="openGame(4)">Minecraft</button>
+    <button onclick="openGame(5)">Half Life</button>
+    <button onclick="openGame(6)">Ultrakill</button>
+    <button onclick="openGame(7)">Cookie Clicker</button>
+    <button onclick="openGame(8)">Doge Miner 2</button>
+    <button onclick="openGame(9)">Doge Miner</button>
+    <button onclick="openGame(10)">Cuphead</button>
+    <button onclick="openGame(11)">Mario</button>
+    <button onclick="openGame(12)">FNAF Launcher</button>
+</div>
+
+<!-- extra button centred below the grid -->
+<div style="margin-top:1rem; text-align:center;">
+    <button
+        onclick="window.open('https://forms.gle/UXbHXv2NLfeEsCbb8','_blank')">
+        Suggest a Game
+    </button>
+</div>
+
+<!-- all twelve containers – don’t omit them in the real file -->
+<div id="iframe-container-1" class="iframe-container">
+    <iframe id="game-iframe-1" class="game-iframe" src=""></iframe>
+    <button class="close-btn" onclick="closeGame(1)">Close Game</button>
+</div>
+<!-- …repeat containers 2 through 11… -->
+<div id="iframe-container-12" class="iframe-container">
+    <iframe id="game-iframe-12" class="game-iframe" src=""></iframe>
+    <button class="close-btn" onclick="closeGame(12)">Close Game</button>
+</div>
+
+<script>
+const gameUrls = {
+    1: 'https://lessons.mrwheeler.uk/resources/semag/baldi-plus/index.html',
+    2: 'https://lessons.mrwheeler.uk/resources/semag/fnae/index.html',
+    3: 'https://lessons.mrwheeler.uk/resources/semag/baldis-basics/index.html',
+    4: 'https://lessons.mrwheeler.uk/resources/semag/eag/index.html',
+    5: 'https://lessons.mrwheeler.uk/resources/semag/halflife/index.html',
+    6: 'https://html-classic.itch.zone/html/15139480/ultrakill/index.html',
+    7: 'https://lessons.mrwheeler.uk/resources/semag/cookieclicker/index.html',
+    8: 'https://lessons.mrwheeler.uk/resources/semag/dogeminer2/index.html',
+    9: 'https://lessons.mrwheeler.uk/resources/semag/dogeminer/index.html',
+    10: 'https://lessons.mrwheeler.uk/resources/semag/cuphead/index.html',
+    11: 'https://lessons.mrwheeler.uk/resources/semag/mario/index.html',
+    12: 'https://irv77.github.io/FnafLauncher'
+};
+
+function openGame(gameNum) {
+    const iframe = document.getElementById('game-iframe-' + gameNum);
+    const container = document.getElementById('iframe-container-' + gameNum);
+    if (!iframe || !container) return;
+    iframe.src = gameUrls[gameNum] || '';
+    container.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeGame(gameNum) {
+    const iframe = document.getElementById('game-iframe-' + gameNum);
+    const container = document.getElementById('iframe-container-' + gameNum);
+    if (iframe) iframe.src = '';
+    if (container) container.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+</script>
 </body>
 </html>
