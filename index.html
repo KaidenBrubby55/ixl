@@ -295,7 +295,6 @@ function closeGame(gameNum) {
 function refreshGame(gameNum) {
     const iframe = document.getElementById('game-iframe-' + gameNum);
     if (iframe) {
-        // reload using stored URL to avoid caching issues
         iframe.src = gameUrls[gameNum] || '';
     }
 }
@@ -316,3 +315,4 @@ function closeVideo() {
 </script>
 </body>
 </html>
+
