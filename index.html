@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Games</title>
 <style>
-    /* no custom root font‑size – browser default (16px) */
+    
     body {
         background-color: #333333;
         font-family: Arial, sans-serif;
@@ -19,24 +19,24 @@
 
     h1 {
         color: #ffffff;
-        font-size: 2rem;         /* 32px */
-        margin-bottom: 1.875rem; /* 30px */
+        font-size: 2rem;         
+        margin-bottom: 1.875rem; 
     }
 
     .button-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
-        gap: 0.9375rem;          /* 15px */
-        max-width: 37.5rem;      /* 600px */
+        gap: 0.9375rem;       
+        max-width: 37.5rem;     
     }
 
     button {
-        padding: 1rem;           /* 16px */
-        font-size: 1rem;         /* 16px */
+        padding: 1rem;          
+        font-size: 1rem;         
         background-color: #000;
         color: #fff;
         border: none;
-        border-radius: 0.5rem;   /* 8px */
+        border-radius: 0.5rem;   
         cursor: pointer;
         transition: background-color 0.3s;
     }
@@ -65,10 +65,10 @@
 
     .close-btn {
         position: absolute;
-        top: 0.625rem;    /* 10px */
+        top: 0.625rem;    
         right: 0.625rem;
         background-color: #333;
-        padding: 0.625rem 1.25rem; /* 10×20px */
+        padding: 0.625rem 1.25rem; 
         z-index: 1001;
     }
 
@@ -94,7 +94,7 @@
     <button onclick="openGame(12)">FNAF Launcher</button>
 </div>
 
-<!-- extra button centred below the grid -->
+
 <div style="margin-top:1rem; text-align:center;">
     <button
         onclick="window.open('https://forms.gle/UXbHXv2NLfeEsCbb8','_blank')">
@@ -102,12 +102,12 @@
     </button>
 </div>
 
-<!-- all twelve containers – don’t omit them in the real file -->
+
 <div id="iframe-container-1" class="iframe-container">
     <iframe id="game-iframe-1" class="game-iframe" src=""></iframe>
     <button class="close-btn" onclick="closeGame(1)">Close Game</button>
 </div>
-<!-- …repeat containers 2 through 11… -->
+
 <div id="iframe-container-12" class="iframe-container">
     <iframe id="game-iframe-12" class="game-iframe" src=""></iframe>
     <button class="close-btn" onclick="closeGame(12)">Close Game</button>
@@ -147,4 +147,5 @@ function closeGame(gameNum) {
 }
 </script>
 </body>
+
 </html>
