@@ -62,7 +62,7 @@
         border: none;
     }
 
-    /* container for close/refresh buttons at top-right */
+    
     .iframe-controls {
         position: absolute;
         top: 0.625rem;
@@ -151,6 +151,10 @@
     <button onclick="openGame(10)">Cuphead</button>
     <button onclick="openGame(11)">Mario</button>
     <button onclick="openGame(12)">FNAF Launcher</button>
+    <button onclick="openGame(13)">Cooking Mama</button>
+    <button onclick="openGame(14)">Kindergarten</button>
+    <button onclick="openGame(15)">Kindergarten 2</button>
+    <button onclick="openGame(16)">Kindergarten 3</button>
 </div>
 
 
@@ -246,6 +250,34 @@
         <button class="close-btn" onclick="closeGame(12)">Close Game</button>
     </div>
 </div>
+<div id="iframe-container-13" class="iframe-container">
+    <iframe id="game-iframe-13" class="game-iframe" src=""></iframe>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(13)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(13)">Close Game</button>
+    </div>
+</div>
+<div id="iframe-container-14" class="iframe-container">
+    <iframe id="game-iframe-14" class="game-iframe" src=""></iframe>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(14)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(14)">Close Game</button>
+    </div>
+</div>
+<div id="iframe-container-15" class="iframe-container">
+    <iframe id="game-iframe-15" class="game-iframe" src=""></iframe>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(15)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(15)">Close Game</button>
+    </div>
+</div>
+<div id="iframe-container-16" class="iframe-container">
+    <iframe id="game-iframe-16" class="game-iframe" src=""></iframe>
+    <div class="iframe-controls">
+        <button class="refresh-btn" onclick="refreshGame(16)">Refresh</button>
+        <button class="close-btn" onclick="closeGame(16)">Close Game</button>
+    </div>
+</div>
 
 
 <button id="video-btn" onclick="openVideo()"></button>
@@ -272,7 +304,11 @@ const gameUrls = {
     9: 'https://lessons.mrwheeler.uk/resources/semag/dogeminer/index.html',
     10: 'https://lessons.mrwheeler.uk/resources/semag/cuphead/index.html',
     11: 'https://lessons.mrwheeler.uk/resources/semag/mario/index.html',
-    12: 'https://irv77.github.io/FnafLauncher'
+    12: 'https://irv77.github.io/FnafLauncher',
+    13: 'https://lessons.mrwheeler.uk/resources/semag/cookingmama/index.html',
+    14: 'https://lessons.mrwheeler.uk/resources/semag/kindergarten/index.html',
+    15: 'https://lessons.mrwheeler.uk/resources/semag/kindergarten2/index.html',
+    16: 'https://lessons.mrwheeler.uk/resources/semag/kindergarten3/index.html'
 };
 
 function openGame(gameNum) {
@@ -315,4 +351,3 @@ function closeVideo() {
 </script>
 </body>
 </html>
-
